@@ -53,7 +53,7 @@ docker build -t aws-darknet-docker .
 docker run -d --runtime=nvidia --name=aws-darknet-docker \
     -e PRETRAINED_WEIGHTS_FILE="your-pretrained-weights-filename.conv.15" \
     -e S3_BUCKET_NAME="your-s3-bucket-name" \
-    aws-darknet-docker
+    aws-darknet-docker; shutdown now
 
 ```
 NOTE: If running locally instead on EC2, you will have to provide AWS credentials to your docker container for a role, that has access to your S3 bucket
