@@ -17,12 +17,11 @@ RUN git clone https://github.com/pjreddie/darknet.git darknet && \
 
 WORKDIR /opt/docker
 
-COPY config/* ./
 COPY scripts/* ./
 
 ENV NETWORK_FILENAME network.cfg
-ENV DATA_FILENAME config.data
-ENV PRETRAINED_WEIGHTS_FILENAME ""
+ENV DATA_FILENAME obj.data
+ENV PRETRAINED_WEIGHTS_FILENAME yolov4.conv.137
 ENV S3_BUCKET_NAME ""
 
 CMD ["./train.sh"]
