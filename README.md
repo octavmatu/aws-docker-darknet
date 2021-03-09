@@ -41,19 +41,19 @@ data/images/image-name-2.jpg
     4. SSH into the instance. [More info](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AccessingInstancesLinux.html)
     5. clone this repo
     ```
-    git clone https://github.com/deividasskiparis/aws-darknet-docker.git aws-darknet-docker && cd aws-darknet-docker
+    git clone https://github.com/octavmatu/aws-docker-darknet.git aws-docker-darknet && cd aws-docker-darknet
     ```
 
 5. Build docker image
 ```
-docker build -t aws-darknet-docker .
+docker build -t aws-docker-darknet .
 ```
 6. Run image
 ```
-docker run -d --runtime=nvidia --name=aws-darknet-docker \
+docker run -d --runtime=nvidia --name=aws-docker-darknet \
     -e PRETRAINED_WEIGHTS_FILE="your-pretrained-weights-filename.conv.15" \
     -e S3_BUCKET_NAME="your-s3-bucket-name" \
-    aws-darknet-docker; shutdown now
+    aws-docker-darknet; shutdown now
 
 ```
 NOTE: If running locally instead on EC2, you will have to provide AWS credentials to your docker container for a role, that has access to your S3 bucket
@@ -69,7 +69,7 @@ docker run -d --name=aws-darknet-docker \
 ```
 Check anytime how your container is doing by getting logs from it
 ```
-docker logs aws-darknet-docker
+docker logs aws-docker-darknet --follow
 ```
 
 7. After the training is finished, the trained weights will be uploaded to you S3 bucket `/models` directory
