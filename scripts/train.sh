@@ -30,3 +30,5 @@ echo "Start training at $(date +"%D %T")"
 echo "Finished training at $(date +"%D %T")"
 
 source save_weights.sh
+
+shutdown -h now
